@@ -2,7 +2,7 @@
 An enjobale time tracking app to help you manage your work day a little better.
 
 # Features
-- Add tasks  [ TODO ]
+- Add tasks 
 - Play or pause tasks  [ TODO ]
 - Tasks can be deleted by right clicking on them and selecting delete  [ TODO ]
 - Tasks can be edited by right clicking on them and selecting edit  [ TODO ]

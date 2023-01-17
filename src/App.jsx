@@ -46,6 +46,18 @@ function App() {
     setNewTaskName('');
   }
 
+  const toggleTaskStatus = (id) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        task.status = task.status === 'playing' ? 'paused' : 'playing';
+      }
+      return task;
+    })
+    console.log({"newTasks": newTasks})
+    setTasks(newTasks);
+  }
+
+
   return (
     <div className="App px-4 py-4">
       <h1 className='text-3xl pb-4'>🦁 time tamer</h1>
@@ -57,7 +69,7 @@ function App() {
       </div>
       <div className="">
         {tasks.map((task) => (
-          <TimerCard key={task.id} task={task.task} time={task.time} status={task.status} last={task.id === taskList.length} />
+          <TimerCard key={task.id} task={task.task} time={task.time} status={task.status} last={task.id === taskList.length} onClick={(event) => toggleTaskStatus(task.id)} />
         ))} 
       </div>
       {/* <footer class="fixed bottom-0  h-16 border-t-2 border-stone-900 w-11/12 m-auto"> */}
