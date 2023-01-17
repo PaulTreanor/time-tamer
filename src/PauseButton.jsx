@@ -1,9 +1,6 @@
 function PauseButton() {
   return (
-    <button className="bg-red-500 hover:bg-red-700 text-white font-bold rounded-md m-1 py-1 px-4">
-      {/* <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg> */}
+    <button className="bg-red-500 hover:bg-red-600 text-white font-bold rounded-md m-1 py-1 px-4">
       <i class="las la-pause"></i>
     </button>
   );
