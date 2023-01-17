@@ -48,6 +48,9 @@ function App() {
 
   const toggleTaskStatus = (id) => {
     const newTasks = tasks.map((task) => {
+      if (task.status === 'playing' && task.id !== id) {
+        task.status = 'paused';
+      }
       if (task.id === id) {
         task.status = task.status === 'playing' ? 'paused' : 'playing';
       }
@@ -69,7 +72,7 @@ function App() {
       </div>
       <div className="">
         {tasks.map((task) => (
-          <TimerCard key={task.id} task={task.task} time={task.time} status={task.status} last={task.id === taskList.length} onClick={(event) => toggleTaskStatus(task.id)} />
+          <TimerCard key={task.id} task={task.task} time={task.time} status={task.status} last={task.id === taskList.length} playPauseOnclick={(event) => toggleTaskStatus(task.id)} />
         ))} 
       </div>
       {/* <footer class="fixed bottom-0  h-16 border-t-2 border-stone-900 w-11/12 m-auto"> */}
