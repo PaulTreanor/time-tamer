@@ -1,9 +1,14 @@
 # Time tamer 
 An enjobale time tracking app to help you manage your work day a little better.
 
+
+# Details
+- Built with Electron and React 
+- Time is tracked with setInterval
+
 # Features
 - ~~Add tasks~~
-- Play or pause tasks  [ TODO ]
+- ~~Play or pause tasks~~
 - Tasks can be deleted by right clicking on them and selecting delete  [ TODO ]
 - Tasks can be edited by right clicking on them and selecting edit  [ TODO ]
 - ~~Only 1 task can be played at a time~~
