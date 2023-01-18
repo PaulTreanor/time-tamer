@@ -8,7 +8,7 @@ const taskList = [
     id: 1,
     task: 'Work on React app',
     time: '00:00:00',
-    status: 'playing'
+    status: 'paused'
   },
   {
     id: 2,
@@ -84,6 +84,10 @@ function App() {
 
   const addTask = () => {
     if (newTaskName === '') {
+      return;
+    }
+    if (tasks.length === 5) {
+      alert('You can only add 5 tasks at a time');
       return;
     }
     const newTask = {
