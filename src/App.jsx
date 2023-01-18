@@ -37,17 +37,35 @@ function App() {
   const [totalTime, setTotalTime] = useState('00:00:00')
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newTasks = tasks.map((task) => {
-        if (task.status === 'playing') {
-          task.time = incrementTime(task.time);
-        }
-        return task;
-      })
-      setTasks(newTasks);
-    }, 1000);
-    return () => clearInterval(interval);
+    let timeout
+    const round = () => {
+      timeout = setTimeout(() => {
+        const newTasks = tasks.map((task) => {
+          if (task.status === 'playing') {
+            task.time = incrementTime(task.time);
+          }
+          return task;
+        })
+        setTasks(newTasks);
+        round();
+      }, 1000);
+    }
+    round();
+    return () => clearTimeout(timeout);
   }, [tasks]);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const newTasks = tasks.map((task) => {
+  //       if (task.status === 'playing') {
+  //         task.time = incrementTime(task.time);
+  //       }
+  //       return task;
+  //     })
+  //     setTasks(newTasks);
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [tasks]);
 
   useEffect(() => {
     let totalSeconds = 0;

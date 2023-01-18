@@ -18,6 +18,7 @@ An enjobale time tracking app to help you manage your work day a little better.
 - Alternatively current tasks are saved to Google Sheets [ TODO ]
 
 # Tests 
+- Test accuracy of timer [ TODO ]
 - Electron app launches correctly [ TODO ]
 - Electron app can be packaged [ TODO ]
 - App records time correctly [ TODO ]
