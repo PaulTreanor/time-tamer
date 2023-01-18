@@ -1,6 +1,4 @@
 function Footer({ totalTime }) {
-  
-  console.log('totalTime', totalTime)
   return (
     // <footer class="fixed bottom-0  h-16 border-t-2 border-stone-900 w-11/12 m-auto">
     <footer className="h-16 border-t-2 border-stone-900 w-11/12 m-auto">

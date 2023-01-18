@@ -38,19 +38,27 @@ function App() {
 
   useEffect(() => {
     let timeout
-    const round = () => {
+    let startTime = Date.now();
+    let totalTime = 0
+    let intervalTime = 1000
+    const round = (intervalTime) => {
       timeout = setTimeout(() => {
+        let elapsedTime = Date.now() - startTime;
+        totalTime += intervalTime;
+        let timeDrift = elapsedTime - totalTime
+        console.log(timeDrift)   // time drift is for the entire time that the timer is running and there's basically no drift :)
         const newTasks = tasks.map((task) => {
           if (task.status === 'playing') {
             task.time = incrementTime(task.time);
           }
           return task;
         })
+
         setTasks(newTasks);
-        round();
-      }, 1000);
+        round(intervalTime-timeDrift);
+      }, intervalTime);
     }
-    round();
+    round(intervalTime);
     return () => clearTimeout(timeout);
   }, [tasks]);
 
