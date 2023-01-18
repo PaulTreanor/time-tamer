@@ -1,6 +1,6 @@
 import TimerCard from './TimerCard';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const taskList = [
@@ -33,6 +33,54 @@ const taskList = [
 function App() {
   const [tasks, setTasks] = useState(taskList);
   const [newTaskName, setNewTaskName] = useState('');
+  const [totalTime, setTotalTime] = useState('00:00:00')
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newTasks = tasks.map((task) => {
+        if (task.status === 'playing') {
+          task.time = incrementTime(task.time);
+        }
+        return task;
+      })
+      setTasks(newTasks);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [tasks]);
+
+  useEffect(() => {
+    let totalSeconds = 0;
+    tasks.forEach((task) => {
+      const timeArray = task.time.split(':');
+      const seconds = parseInt(timeArray[2]);
+      const minutes = parseInt(timeArray[1]);
+      const hours = parseInt(timeArray[0]);
+      totalSeconds += seconds + (minutes * 60) + (hours * 60 * 60);
+    })
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
+    const seconds = totalSeconds - (hours * 3600) - (minutes * 60);
+    setTotalTime(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+  }, [tasks])
+
+
+  const incrementTime = (time) => {
+    const timeArray = time.split(':');
+    let seconds = parseInt(timeArray[2]);
+    let minutes = parseInt(timeArray[1]);
+    let hours = parseInt(timeArray[0]);
+    seconds += 1;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes += 1;
+    }
+    if (minutes === 60) {
+      minutes = 0;
+      hours += 1;
+    }
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
 
   const addTask = () => {
     if (newTaskName === '') {
@@ -58,7 +106,6 @@ function App() {
       }
       return task;
     })
-    console.log({"newTasks": newTasks})
     setTasks(newTasks);
   }
 
@@ -77,7 +124,7 @@ function App() {
           <TimerCard key={task.id} task={task.task} time={task.time} status={task.status} last={task.id === taskList.length} playPauseOnclick={(event) => toggleTaskStatus(task.id)} />
         ))} 
       </div>
-      <Footer />
+      <Footer totalTime={totalTime} />
     </div>
   );
 }

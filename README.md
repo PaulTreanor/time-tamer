@@ -16,6 +16,7 @@ An enjobale time tracking app to help you manage your work day a little better.
 - Electron app launches correctly [ TODO ]
 - Electron app can be packaged [ TODO ]
 - App records time correctly [ TODO ]
+- App formats time correctly [ TODO ]
 - App can be played and paused [ TODO ]
 - App can be edited [ TODO ]
 - App can be deleted [ TODO ]
