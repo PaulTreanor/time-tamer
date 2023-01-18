@@ -1,9 +1,7 @@
 import PlayButton from './PlayButton';
 import PauseButton from './PauseButton';
 
-function TimerCard({ key, task, time, status, last, playPauseOnclick }) {
-  console.log({ "key": key })
-  
+function TimerCard({ task, time, status, last, playPauseOnclick }) {
   const cardBackgroundColor = status === 'playing' ? 'bg-green-100' : ""
   const cardBorderBottom = !last ? 'border-b' : ''
     
