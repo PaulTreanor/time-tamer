@@ -1,6 +1,7 @@
 import TimerCard from './TimerCard';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
+import uuid4 from "uuid4";
 
 
 const taskList = [
@@ -91,7 +92,7 @@ function App() {
       return;
     }
     const newTask = {
-      id: tasks.length + 1,
+      id: uuid4(),
       task: newTaskName,
       time: '00:00:00',
       status: 'paused'
