@@ -12,10 +12,9 @@ function TimerCard({ key, task, time, status, last, playPauseOnclick }) {
       <p className="basis-7/12 align-bottom m-1 pt-1 px-1">{task}</p>
       <p className='bg-stone-200 rounded-md m-1 pt-1 px-1'>{time}</p>
       <div onClick={playPauseOnclick}>
-      {status === 'paused' ? <PlayButton /> : <PauseButton />}
+        {status === 'paused' ? <PlayButton /> : <PauseButton />}
       </div>
-      
-      </div>
+    </div>
   );
 }
 

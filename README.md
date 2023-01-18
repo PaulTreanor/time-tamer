@@ -2,11 +2,11 @@
 An enjobale time tracking app to help you manage your work day a little better.
 
 # Features
-- Add tasks 
+- ~~Add tasks~~
 - Play or pause tasks  [ TODO ]
 - Tasks can be deleted by right clicking on them and selecting delete  [ TODO ]
 - Tasks can be edited by right clicking on them and selecting edit  [ TODO ]
-- Only 1 task can be played at a time  [ TODO ]
+- ~~Only 1 task can be played at a time~~
 - Only 5 tasks can be added at a time  [ TODO ]
 - All times reset at 12:00am each day  [ TODO ]
 - Current task is saved to local storage [ TODO ]
