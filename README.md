@@ -4,7 +4,7 @@ An enjobale time tracking app to help you manage your work day a little better.
 
 # Details
 - Built with Electron and React 
-- Time is tracked with setInterval
+- Time is tracked with self correcting setTimeout
 
 # Features
 - ~~Add tasks~~
