@@ -1,5 +1,5 @@
 # Time tamer 
-An enjobale time tracking app to help you manage your work day a little better.
+An enjoyable time tracking app to help you manage your work day.
 
 
 # Details
