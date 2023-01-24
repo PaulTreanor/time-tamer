@@ -6,15 +6,12 @@ const Store = require('electron-store')
 
 // initialise electron-store in renderer process
 const store = new Store();
-store.set('unicorn', '🦄');
 
 // Set date and tasklist if new day
 if (store.get('todayDate') === undefined || store.get('todayDate') !== new Date().toDateString()) {
     store.set('todayDate', new Date().toDateString());
     store.set('taskList', [])
 }
-
-
 
 
 function createWindow() {
