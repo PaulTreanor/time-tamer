@@ -1,8 +1,10 @@
 import TimerCard from './TimerCard';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import uuid4 from "uuid4";
 import useFrame from './useFrame'
+
+
 
 
 const taskList = []
@@ -19,6 +21,10 @@ function App() {
   const [tasks, setTasks] = useState(taskList);
   const [newTaskName, setNewTaskName] = useState('');
 
+  useEffect(() => {
+    window.app.readFromStore().then((data) => setTasks(data))
+    }, [])
+
   useFrame((timeDifference) => {
     const playingTaskIndex = tasks.findIndex(task => {    // returns first task found that meets condition
       return task.status === "playing"
@@ -28,6 +34,7 @@ function App() {
       let after = tasks.slice(playingTaskIndex + 1)
       let newItem = { ...tasks[playingTaskIndex], time: tasks[playingTaskIndex].time += timeDifference }
       setTasks([...before, newItem, ...after])
+      window.app.writeToStore(tasks).then((res) => console.log(res))
     }
   })
 
@@ -53,6 +60,7 @@ function App() {
     }
     setTasks([...tasks, newTask]);
     setNewTaskName('');
+    window.app.writeToStore(tasks).then((res) => console.log(res))
   }
 
   const toggleTaskStatus = (id) => {
