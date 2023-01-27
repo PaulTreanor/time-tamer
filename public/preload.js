@@ -1,4 +1,3 @@
-const fs = require('fs');
 const { ipcRenderer, contextBridge } = require('electron');   // contextBridge lets you create an API that can be accessed from the renderer process
 
 

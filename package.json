@@ -1,5 +1,10 @@
 {
   "name": "time-tamer",
+  "author": {
+		"name": "Paul Treanor",
+		"email": "treanorpaul9@gmail.com",
+		"url": "https://paultreanor.com"
+	},
   "productName": "Time Tamer",
   "description": "An enjoyable time tracking app to help you manage your work day.",
   "main": "public/electron.js",

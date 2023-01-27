@@ -16,7 +16,7 @@ if (store.get('todayDate') === undefined || store.get('todayDate') !== new Date(
 
 function createWindow() {
     const startUrl = process.env.ELECTRON_START_URL || url.format({
-        pathname: path.join(__dirname, '../index.html'),    // path should be './index.html' for packaged version 
+        pathname: path.join(__dirname, './index.html'),    // path should be './index.html' for packaged version 
         protocol: 'file:',
         slashes: true,
     });
@@ -53,7 +53,6 @@ ipcMain.handle("store/read", async (event, args) => {
 })
 
 ipcMain.handle("store/write", async (event, args) => {
-    console.log({ "args": args })
     store.set('taskList', args)
     return "writing to store"
 })
