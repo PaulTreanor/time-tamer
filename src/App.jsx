@@ -34,7 +34,7 @@ function App() {
       let after = tasks.slice(playingTaskIndex + 1)
       let newItem = { ...tasks[playingTaskIndex], time: tasks[playingTaskIndex].time += timeDifference }
       setTasks([...before, newItem, ...after])
-      window.app.writeToStore(tasks).then((res) => console.log(res))
+      window.app.writeToStore(tasks)
     }
   })
 

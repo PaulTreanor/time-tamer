@@ -18,6 +18,7 @@ An enjoyable time tracking app to help you manage your work day.
 - ~~All times reset at 12:00am each day~~
 - ~~Current task is saved to local storage~~
 - Daily total times logged to Google Sheets/CSV [ TODO ]
+- Add time tamer status to menu bar [ TODO ]
 
 # Tests 
 - Test accuracy of timer [ TODO ]
