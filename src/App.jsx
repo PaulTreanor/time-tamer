@@ -76,12 +76,17 @@ function App() {
     setTasks(newTasks);
   }
 
+  function handleKeyPress(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+      addTask();
+    }
+  }
 
   return (
     <div className="App px-4 py-4">
       <h1 className='text-3xl pb-4'>🦁 time tamer</h1>
       <div className="flex flex-row mb-6 mt-2">
-        <input className="border-2 border-stone-300 rounded-l-md text-lg my-1 ml-1 pt-1 px-1" type="text" value={newTaskName} onChange={(event) => setNewTaskName(event.target.value)} placeholder="add task" size="42"/>
+        <input className="border-2 border-stone-300 rounded-l-md text-lg my-1 ml-1 pt-1 px-1" type="text" value={newTaskName} onChange={(event) => setNewTaskName(event.target.value)} onKeyDown={(event) => handleKeyPress(event)} placeholder="add task" size="42"/>
         <button onClick={(event) => addTask(event)} className="bg-stone-300 hover:bg-stone-400 text-black font-semibold rounded-r-md my-1 mr-1  py-1 px-4">
           add task
         </button>

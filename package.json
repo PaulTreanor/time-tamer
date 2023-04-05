@@ -67,6 +67,14 @@
     "productName": "Time Tamer",
     "copyright": "Paul Treanor",
     "mac": {
+      "appId": "paultreanor.time-tamer",
+      "category": "public.app-category.productivity",
+      "target": "dmg",
+      "icon": "resources/icon.icns",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "gatekeeperAssess": false,
       "publish": {
         "provider": "github",
         "owner": "paultreanor",
